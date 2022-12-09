@@ -9,4 +9,5 @@ class ColorConfig {
   static Color facebook = const Color(0xFF3E74BA);
   static Color google = const Color(0xFFEE3324);
   static Color splash = const Color(0xFF5B49CC);
+  static Color dotColor = const Color(0xFFD9D9D9);
 }

@@ -41,6 +41,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.11.0
+  smooth_page_indicator: ^1.0.0+2
 
 
 flutter_icons:
@@ -70,6 +71,7 @@ flutter:
   assets:
     - assets/images/icons/
     - assets/images/logo/
+    - assets/images/splash/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

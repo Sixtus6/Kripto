@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kripto/config/color.dart';
 import 'package:kripto/config/size.dart';
+import 'package:kripto/features/onboarding/index.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -12,21 +13,21 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // void flagSwitch() {
-  //   Timer(const Duration(seconds: 2), () {
-  //     Navigator.pushAndRemoveUntil(context,
-  //         MaterialPageRoute(builder: (context) {
-  //       /*------------------------------------------------
-  //       Here we'll navigate been on authentication status
-  //       -------------------------------------------------*/
-  //       return const Login();
-  //     }), (Route<dynamic> route) => false);
-  //   });
-  // }
+  void flagSwitch() {
+    Timer(const Duration(seconds: 2), () {
+      Navigator.pushAndRemoveUntil(context,
+          MaterialPageRoute(builder: (context) {
+        /*------------------------------------------------
+        Here we'll navigate been on authentication status
+        -------------------------------------------------*/
+        return const OnboardingScreen();
+      }), (Route<dynamic> route) => false);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    //  flagSwitch();
+    flagSwitch();
 
     return Scaffold(
       backgroundColor: ColorConfig.splash,
