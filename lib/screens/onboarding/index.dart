@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kripto/config/color.dart';
+import 'package:kripto/config/navigator.dart';
 import 'package:kripto/config/size.dart';
+import 'package:kripto/screens/account/index.dart';
+import 'package:kripto/screens/widget/button.dart';
 import 'package:kripto/utils/style.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -25,13 +28,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     {
       "title": "Easy To Use",
       "subject":
-          "It's just like any other wallet that you use for your day-to-day transactions",
+          "It's just like any other wallet that you use for your day-to-day transactions.",
       "image": "assets/images/splash/easy2.png",
     },
     {
       "title": "Secured",
       "subject":
-          "Highly secure. it's just a matter of securing your private key",
+          "Highly secure. it's just a matter of securing your private key,shared private keys could lead to funds theft. ",
       "image": "assets/images/splash/mainseured.png",
     }
   ];
@@ -40,74 +43,71 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(
-              height: SizeConfig.getPercentageWidth(150),
-              child: PageView(controller: controller, children: [
-                ...List.generate(
-                    data.length,
-                    ((index) => onboardingWidget(
-                        title: data[index]['title'],
-                        subject: data[index]['subject'],
-                        image: data[index]['image']))),
-              ]),
-            ),
-            Center(
-                child: SmoothPageIndicator(
-              controller: controller,
-              count: data.length,
-              effect: WormEffect(
-                  dotHeight: SizeConfig.getPercentageWidth(3),
-                  dotWidth: SizeConfig.getPercentageWidth(3),
-                  spacing: 10,
-                  dotColor: ColorConfig.dotColor,
-                  activeDotColor: ColorConfig.splash),
-            )),
-            SizedBox(
-              height: SizeConfig.getPercentageHeight(5),
-            ),
-            Container(
-              child: Center(
-                child: Text(
-                  "Create Account",
-                  style: titleStyle(context, true, size: 25),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: SizeConfig.getPercentageWidth(150),
+                child: PageView(controller: controller, children: [
+                  ...List.generate(
+                      data.length,
+                      ((index) => onboardingWidget(
+                          title: data[index]['title'],
+                          subject: data[index]['subject'],
+                          image: data[index]['image']))),
+                ]),
+              ),
+              Center(
+                  child: SmoothPageIndicator(
+                controller: controller,
+                count: data.length,
+                effect: WormEffect(
+                    dotHeight: SizeConfig.getPercentageWidth(3),
+                    dotWidth: SizeConfig.getPercentageWidth(3),
+                    spacing: 10,
+                    dotColor: ColorConfig.dotColor,
+                    activeDotColor: ColorConfig.splash),
+              )),
+              SizedBox(
+                height: SizeConfig.getPercentageHeight(5),
+              ),
+              GestureDetector(
+                onTap: (() {
+                  NavConfig.pushAndReplace(context, const CreateAccount());
+                }),
+                child: CustomButton(
+                  text: 'Create Account',
+                  isColored: true,
                 ),
               ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: ColorConfig.splash,
+              SizedBox(
+                height: SizeConfig.getPercentageHeight(3),
               ),
-              height: SizeConfig.getPercentageWidth(13),
-              width: SizeConfig.getPercentageWidth(70),
-            ),
-            SizedBox(
-              height: SizeConfig.getPercentageHeight(3),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Already have an account?",
-                  style: titleStyle(context, false, size: 18),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print("object");
-                    print(data[0].toString());
-                  },
-                  child: Text(
-                    "Sign in",
-                    style: titleStyle(context, false,
-                        size: 18, color: ColorConfig.splash),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Already have an account?",
+                    style: titleStyle(context, false, size: 18),
                   ),
-                ),
-              ],
-            ),
-          ],
+                  SizedBox(
+                    width: 5,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      print("object");
+                      print(data[0].toString());
+                    },
+                    child: Text(
+                      "Sign in",
+                      style: titleStyle(context, false,
+                          size: 18, color: ColorConfig.splash),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -164,9 +164,7 @@ class onboardingWidget extends StatelessWidget {
                 width: SizeConfig.getPercentageWidth(60),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      opacity: 0.7,
-                      image: AssetImage(image),
-                      fit: BoxFit.cover),
+                      image: AssetImage(image), fit: BoxFit.cover),
                   shape: BoxShape.circle,
                 ),
               ),

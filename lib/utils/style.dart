@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kripto/config/color.dart';
+import 'package:kripto/config/constant.dart';
 
 TextStyle titleStyle(BuildContext context, bool bold,
     {double size = 25.0, Color color = Colors.white}) {

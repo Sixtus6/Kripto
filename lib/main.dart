@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kripto/features/mainscreen.dart';
+import 'package:kripto/screens/mainscreen.dart';
 import 'package:kripto/provider/theme.dart';
 
 void main() {

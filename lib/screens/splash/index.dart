@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kripto/config/color.dart';
 import 'package:kripto/config/size.dart';
-import 'package:kripto/features/onboarding/index.dart';
+import 'package:kripto/screens/onboarding/index.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
