@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kripto/config/color.dart';
-import 'package:kripto/config/constant.dart';
+import 'package:kripto/config/base-url.dart';
 import 'package:kripto/config/navigator.dart';
 import 'package:kripto/config/size.dart';
 import 'package:kripto/screens/account/signin/index.dart';

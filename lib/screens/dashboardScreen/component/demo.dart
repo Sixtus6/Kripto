@@ -9,16 +9,14 @@ import 'package:intl/intl.dart';
 import 'dart:async';
 import 'dart:math';
 
-class Graphcontainer extends StatefulWidget {
-  const Graphcontainer({
-    Key? key,
-  }) : super(key: key);
+class Demo extends StatefulWidget {
+  const Demo({super.key});
 
   @override
-  State<Graphcontainer> createState() => _GraphcontainerState();
+  State<Demo> createState() => _DemoState();
 }
 
-class _GraphcontainerState extends State<Graphcontainer> {
+class _DemoState extends State<Demo> {
   late List<Graph_data_model> _chartdata;
 
   int point = 19059;
@@ -68,17 +66,17 @@ class _GraphcontainerState extends State<Graphcontainer> {
 
             // pointColorMapper: (datum, index) => Colors.red,
             dataSource: _chartdata,
-            name: "Etherum",
+            name: "Krypto",
             xValueMapper: (Graph_data_model data, _) => data.days,
             highValueMapper: (Graph_data_model data, _) => data.high_24hr,
             lowValueMapper: (Graph_data_model data, _) => data.low_24hr,
           )
         ],
         primaryYAxis: NumericAxis(
-            minimum: 200,
-            maximum: 2000,
+            majorGridLines: MajorGridLines(width: 5),
+            minimum: 0,
+            maximum: 10,
             numberFormat: NumberFormat.simpleCurrency(decimalDigits: 0)),
-        //primaryXAxis: NumericAxis(edgeLabelPlacement: EdgeLabelPlacement.shift),
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -94,8 +92,8 @@ class _GraphcontainerState extends State<Graphcontainer> {
 
   List<Graph_data_model> getdata() {
     return <Graph_data_model>[
-      Graph_data_model(1800, 500, "7d high"),
-      Graph_data_model(230, 1200.toDouble(), "1m low"),
+      Graph_data_model(3, 1, "7d low"),
+      Graph_data_model(9, 1.toDouble(), "1m high"),
     ];
   }
 }

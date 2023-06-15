@@ -9,16 +9,14 @@ import 'package:intl/intl.dart';
 import 'dart:async';
 import 'dart:math';
 
-class Graphcontainer extends StatefulWidget {
-  const Graphcontainer({
-    Key? key,
-  }) : super(key: key);
+class Graph_components extends StatefulWidget {
+  const Graph_components({super.key});
 
   @override
-  State<Graphcontainer> createState() => _GraphcontainerState();
+  State<Graph_components> createState() => _Graph_componentsState();
 }
 
-class _GraphcontainerState extends State<Graphcontainer> {
+class _Graph_componentsState extends State<Graph_components> {
   late List<Graph_data_model> _chartdata;
 
   int point = 19059;
@@ -40,7 +38,7 @@ class _GraphcontainerState extends State<Graphcontainer> {
   void initState() {
     _chartdata = getdata();
     // TODO: implement initState
-    // initiateRandomizer();
+    //initiateRandomizer();
     super.initState();
   }
 
@@ -68,15 +66,15 @@ class _GraphcontainerState extends State<Graphcontainer> {
 
             // pointColorMapper: (datum, index) => Colors.red,
             dataSource: _chartdata,
-            name: "Etherum",
+            name: "Bitcoin",
             xValueMapper: (Graph_data_model data, _) => data.days,
             highValueMapper: (Graph_data_model data, _) => data.high_24hr,
             lowValueMapper: (Graph_data_model data, _) => data.low_24hr,
           )
         ],
         primaryYAxis: NumericAxis(
-            minimum: 200,
-            maximum: 2000,
+            minimum: 10000,
+            maximum: 20000,
             numberFormat: NumberFormat.simpleCurrency(decimalDigits: 0)),
         //primaryXAxis: NumericAxis(edgeLabelPlacement: EdgeLabelPlacement.shift),
       ),
@@ -94,8 +92,8 @@ class _GraphcontainerState extends State<Graphcontainer> {
 
   List<Graph_data_model> getdata() {
     return <Graph_data_model>[
-      Graph_data_model(1800, 500, "7d high"),
-      Graph_data_model(230, 1200.toDouble(), "1m low"),
+      Graph_data_model(10700, 15100, "7d low"),
+      Graph_data_model(10755, point.toDouble(), "1m high"),
     ];
   }
 }
