@@ -1,6 +1,6 @@
-# kripto
+# Kripto
 
-A new Flutter project.
+Introducing a Flutter-built Crypto Wallet UI app—your gateway to seamless crypto management. Track, trade, and secure your digital assets effortlessly. With real-time updates, easy transactions, and top-notch security features, dive into the world of cryptocurrencies hassle-free. Your crypto, your control, all at your fingertips.
 
 ## Getting Started
 
