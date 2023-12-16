@@ -2,6 +2,14 @@
 
 Introducing a Flutter-built Crypto Wallet UI app—your gateway to seamless crypto management. Track, trade, and secure your digital assets effortlessly. With real-time updates, easy transactions, and top-notch security features, dive into the world of cryptocurrencies hassle-free. Your crypto, your control, all at your fingertips.
 
+# Demo Video
+
+
+https://github.com/Sixtus6/Kripto/assets/72328675/f88c1ec3-1eea-4ab1-aaa0-a9e755f754a7
+
+
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
